@@ -1,0 +1,30 @@
+name: Code Formatting Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  formatting:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # or your project version
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Check formatting
+      - name: Run Prettier
+        run: npm run format:check
+
