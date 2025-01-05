@@ -6,6 +6,9 @@ export default {
       transitionProperty: {
         width: 'width',
       },
+      colors: {
+        secondary: '#fffef7',
+      },
     },
   },
   plugins: [],
