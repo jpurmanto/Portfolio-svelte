@@ -1,5 +1,5 @@
 <script>
-  const imageSrc = '/src/lib/assets/saurabh.webp'
+  const imageSrc = '/saurabh.webp'
 </script>
 
 <div
