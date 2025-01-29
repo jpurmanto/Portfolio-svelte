@@ -1,5 +1,5 @@
 <script>
-  const imageSrc = '/src/lib/assets/saurabh.jpg'
+  const imageSrc = '/src/lib/assets/saurabh.webp'
 </script>
 
 <div
@@ -40,7 +40,7 @@
         </span>
       </div>
       <div class="mt-8">
-        <a href="/">
+        <a href="mailto:contact@saurabhvishwakarma.in">
           <span class="font-bold">Let's Connect? </span>
         </a>
       </div>

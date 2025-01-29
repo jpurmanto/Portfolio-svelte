@@ -2,7 +2,7 @@
   import { onMount } from 'svelte'
   import { writable } from 'svelte/store'
 
-  export const isNavBarOn = writable(true)
+  export const isNavBarOn = writable(false)
 
   // Toggle function to update the state
   export const toggleNavBar = () => {
@@ -39,18 +39,18 @@
         <span> About </span>
       </div>
     </a>
-    <!-- resume nav -->
-    <a href="https://resume.saurabhvishwakarma.in">
-      <div class="flex items-center justify-center gap-2">
-        <img src="/profile.svg" alt="ok" />
-        <span> Resume </span>
-      </div>
-    </a>
     <!-- Home btn -->
     <a href="#projects">
       <div class="flex items-center justify-center gap-2">
         <img src="/work.svg" alt="ok" />
         <span> Projects </span>
+      </div>
+    </a>
+    <!-- resume nav -->
+    <a href="https://resume.saurabhvishwakarma.in">
+      <div class="flex items-center justify-center gap-2">
+        <img src="/profile.svg" alt="ok" />
+        <span> Resume </span>
       </div>
     </a>
 
