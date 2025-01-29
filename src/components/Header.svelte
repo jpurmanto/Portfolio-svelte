@@ -2,12 +2,11 @@
   import { onMount } from 'svelte'
   import { writable } from 'svelte/store'
 
-  export const isNavBarOn = writable(false)
+  export const isNavBarOn = writable(true)
 
   // Toggle function to update the state
   export const toggleNavBar = () => {
     isNavBarOn.update((value) => !value)
-    console.log('NavBar State:', $isNavBarOn) // Logs current state
   }
   onMount(() => {})
 </script>
@@ -27,29 +26,29 @@
     </a>
 
     <!-- work exp nav -->
-    <a href="/" class="ml-auto">
-      <div id="home" class="flex items-center justify-center gap-2">
+    <a href="#home" class="ml-auto">
+      <div class="flex items-center justify-center gap-2">
         <img src="/Home.svg" alt="ok" />
         <span> Home </span>
       </div>
     </a>
     <!-- about nav -->
-    <a href="/about">
-      <div id="about" class="flex items-center justify-center gap-2">
+    <a href="#about">
+      <div class="flex items-center justify-center gap-2">
         <img src="/about.svg" alt="ok" />
         <span> About </span>
       </div>
     </a>
     <!-- resume nav -->
     <a href="https://resume.saurabhvishwakarma.in">
-      <div id="resume" class="flex items-center justify-center gap-2">
+      <div class="flex items-center justify-center gap-2">
         <img src="/profile.svg" alt="ok" />
         <span> Resume </span>
       </div>
     </a>
     <!-- Home btn -->
-    <a href="/projects">
-      <div id="project" class="flex items-center justify-center gap-2">
+    <a href="#projects">
+      <div class="flex items-center justify-center gap-2">
         <img src="/work.svg" alt="ok" />
         <span> Projects </span>
       </div>
@@ -83,14 +82,20 @@
       </span>
     </button>
 
+    <!-- drawer -->
+
     <div
-      class={`nav-bar bg-[#000] text-white overflow-hidden absolute h-[100vh] right-0 top-0 transition-width duration-300   pt-16 ${$isNavBarOn ? 'w-48' : 'w-0'}`}
+      class={`nav-bar  bg-[#000] text-white overflow-hidden absolute h-[100vh] right-0 top-0 transition-width duration-300   pt-16 ${$isNavBarOn ? 'w-[48vw]' : 'w-0'}`}
     >
       <ul
-        class="[&_li]:py-2 [&>*:hover]:bg-gray-500 [&>*:hover]:cursor-pointer flex flex-col"
+        class="[&_li]:py-2 [&>*:hover]:bg-gray-500 [&>*:hover]:cursor-pointer flex flex-col items-left w-full"
       >
         <li>
-          <a href="/" class="ml-4 flex items-center gap-2">
+          <a
+            href="#home"
+            onclick={toggleNavBar}
+            class="ml-4 flex items-center gap-2"
+          >
             <svg
               width="16"
               height="16"
@@ -114,7 +119,11 @@
           </a>
         </li>
         <li>
-          <a href="/about" class="ml-4 flex items-center gap-2">
+          <a
+            href="#about"
+            onclick={toggleNavBar}
+            class="ml-4 flex items-center gap-2"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -133,7 +142,11 @@
           </a>
         </li>
         <li>
-          <a href="/projects" class="ml-4 flex items-center gap-2">
+          <a
+            href="#projects"
+            onclick={toggleNavBar}
+            class="ml-4 flex items-center gap-2"
+          >
             <svg
               width="20"
               height="19"
@@ -149,7 +162,42 @@
           </a>
         </li>
         <li>
-          <a href="/" class="ml-4 flex items-center gap-2">
+          <a
+            href="https://resume.saurabhvishwakarma.in"
+            onclick={toggleNavBar}
+            class="ml-4 flex items-center gap-2"
+          >
+            <svg
+              fill="#fff"
+              version="1.1"
+              height="18px"
+              width="18px"
+              class="font-bold"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 398 398"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              enable-background="new 0 0 398 398"
+            >
+              <g>
+                <path
+                  d="m374,81.475v-50.66c0-5.523-4.478-10-10-10h-354c-5.522,0-10,4.477-10,10v285.16c0,5.523 4.478,10 10,10h40v23.21c0,15.439 12.561,28 28,28h292c15.439,0 28-12.561 28-28v-240c0-14.081-10.449-25.762-24-27.71zm-354,224.5v-265.16h334v40.37h-96c-15.439,0-28,12.561-28,28 0,4.411-3.589,8-8,8h-144c-15.439,0-28,12.561-28,28v160.79h-30zm358,43.21c0,4.411-3.589,8-8,8h-292c-4.411,0-8-3.589-8-8v-204c0-4.411 3.589-8 8-8h144c15.439,0 28-12.561 28-28 0-4.411 3.589-8 8-8h112c4.411,0 8,3.589 8,8v240z"
+                />
+                <path
+                  d="m198,167.185h-92c-5.522,0-10,4.477-10,10s4.478,10 10,10h92c5.522,0 10-4.477 10-10s-4.478-10-10-10z"
+                />
+                <path
+                  d="m198,201.185h-92c-5.522,0-10,4.477-10,10s4.478,10 10,10h92c5.522,0 10-4.477 10-10s-4.478-10-10-10z"
+                />
+              </g>
+            </svg>
+            <span> Resume </span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="mailto:contact@saurabhvishwakarma.in"
+            class="ml-4 flex items-center gap-2"
+          >
             <svg
               width="18"
               height="14"

@@ -1,8 +1,10 @@
-<script lang="ts">
+<script>
+  const imageSrc = '/src/lib/assets/saurabh.jpg'
 </script>
 
 <div
-  class="md:mt-4 w-full h-[100dvh] md:h-full flex items-center relative justify-center mx-0 text-[#676767]"
+  class="md:mt-4 w-full md:h-full flex items-center relative justify-center mx-0 text-[#676767] max-h-[90vh]"
+  id="home"
 >
   <div class="flex md:w-[80%] max-sm:flex-col-reverse flex-row">
     <!-- info section -->
@@ -46,10 +48,9 @@
     <!-- image section -->
     <div class=" flex flex-row items-center mb-8 justify-center z-0">
       <img
-        src="/saurabh.jpg"
+        src={imageSrc}
+        alt="main profiel"
         class="w-[200px] md:w-[600px] rounded-xl"
-        alt="saurabh_image"
-        srcset=""
       />
     </div>
   </div>
