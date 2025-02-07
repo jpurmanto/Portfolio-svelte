@@ -1,56 +1,40 @@
 name: PageSpeed Insights Reports
+
 on:
   workflow_dispatch:
   push:
     branches:
       - main
       - '**' # This matches any branch
-  schedule:
-    - cron: '0 0 * * *' # Runs daily at midnight
+
+permissions:
+  contents: write # Ensures the workflow can commit files if needed
 
 jobs:
   pagespeed-metrics:
     runs-on: ubuntu-latest
     steps:
-      - name: Succinct report
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics.plugin.pagespeed.svg
-          token: NOT_NEEDED
-          base: ''
-          plugin_pagespeed: yes
-          plugin_pagespeed_token: ${{ secrets.PAGESPEED_TOKEN }}
-          plugin_pagespeed_url: https://lecoq.io
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Detailed report
         uses: lowlighter/metrics@latest
         with:
           filename: metrics.plugin.pagespeed.detailed.svg
-          token: NOT_NEEDED
+          token: ${{ secrets.GITHUB_TOKEN }}
           base: ''
           plugin_pagespeed: yes
           plugin_pagespeed_detailed: yes
           plugin_pagespeed_token: ${{ secrets.PAGESPEED_TOKEN }}
-          plugin_pagespeed_url: https://lecoq.io
+          plugin_pagespeed_url: https://saurabhvishwakarma.in
 
       - name: Screenshot
         uses: lowlighter/metrics@latest
         with:
           filename: metrics.plugin.pagespeed.screenshot.svg
-          token: NOT_NEEDED
+          token: ${{ secrets.GITHUB_TOKEN }}
           base: ''
           plugin_pagespeed: yes
           plugin_pagespeed_screenshot: yes
           plugin_pagespeed_token: ${{ secrets.PAGESPEED_TOKEN }}
-          plugin_pagespeed_url: https://lecoq.io
-
-      - name: Succinct report with PWA
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics.plugin.pagespeed.svg
-          token: NOT_NEEDED
-          base: ''
-          plugin_pagespeed: yes
-          plugin_pagespeed_token: ${{ secrets.PAGESPEED_TOKEN }}
-          plugin_pagespeed_url: https://lecoq.io
-          plugin_pagespeed_pwa: yes
+          plugin_pagespeed_url: https://saurabhvishwakarma.in
